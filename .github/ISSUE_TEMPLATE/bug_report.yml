@@ -98,7 +98,6 @@ body:
         game.apk
         main.123.com.example.game.obb
         patch.123.com.example.game.obb
-      render: text
     validations:
       required: false
 
@@ -107,7 +106,6 @@ body:
     attributes:
       label: Error message or screenshot
       description: Paste the exact text. You can drag a screenshot into this box.
-      render: text
     validations:
       required: false
 
