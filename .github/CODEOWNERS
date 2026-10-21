@@ -1,0 +1,15 @@
+# The maintainer must review changes to credits, licensing, release identity,
+# signing configuration, and CI. This is what makes the credit check meaningful
+# for pull requests: a PR cannot quietly change the checker and the credits.
+/CREDITS.md @krxzyuzivr
+/NOTICE @krxzyuzivr
+/LICENSE @krxzyuzivr
+/TRADEMARKS.md @krxzyuzivr
+/README.md @krxzyuzivr
+/scripts/ @krxzyuzivr
+/.github/ @krxzyuzivr
+/app/src/main/res/values/strings.xml @krxzyuzivr
+/app/src/main/res/layout/activity_main.xml @krxzyuzivr
+/app/src/main/java/com/krxzy/krxzyinstall/Ui.java @krxzyuzivr
+/app/src/main/java/com/krxzy/krxzyinstall/MainActivity.java @krxzyuzivr
+/app/build.gradle @krxzyuzivr

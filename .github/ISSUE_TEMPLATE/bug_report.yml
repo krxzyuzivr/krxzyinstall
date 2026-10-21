@@ -1,0 +1,133 @@
+name: Bug report
+description: Something went wrong while scanning, installing, copying OBBs, or launching.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing krxzyinstall. Please try the [latest release](https://github.com/krxzyuzivr/krxzyinstall/releases/latest) first, and remove personal information from logs before posting.
+
+  - type: input
+    id: version
+    attributes:
+      label: krxzyinstall version
+      description: The version shown in the app or the APK filename.
+      placeholder: "1.0.1 (versionCode 2)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: headset
+    attributes:
+      label: Headset or device
+      options:
+        - Meta Quest 3S
+        - Meta Quest 3
+        - Meta Quest 2
+        - Meta Quest Pro
+        - Android emulator
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: horizon
+    attributes:
+      label: Horizon OS / Android version
+      description: For example, Horizon OS 2.7 (Android 14). Emulator users can enter the Android version.
+      placeholder: "Horizon OS 2.7 (Android 14)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: What stage failed?
+      options:
+        - Setup or permissions
+        - Scanning or matching files
+        - APK install
+        - OBB copy
+        - Launching the game
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the failure and what the screen showed.
+      placeholder: "The APK installed, but the app stopped before copying the OBBs..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Put these files in Downloads...
+        2. Open krxzyinstall...
+        3. Tap Install game...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+
+  - type: input
+    id: package
+    attributes:
+      label: Game package name (if known)
+      placeholder: "com.example.game"
+    validations:
+      required: false
+
+  - type: textarea
+    id: files
+    attributes:
+      label: APK and OBB filenames
+      description: Paste the names and where they were stored. Do not upload the game files themselves.
+      placeholder: |
+        game.apk
+        main.123.com.example.game.obb
+        patch.123.com.example.game.obb
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: error
+    attributes:
+      label: Error message or screenshot
+      description: Paste the exact text. You can drag a screenshot into this box.
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (optional)
+      description: If you have a PC, run `adb logcat -s krxzyinstall` and paste the relevant lines. Remove account names and other personal data.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I am using the latest release, or I built this APK myself from the current source.
+          required: true
+        - label: I searched existing issues and did not find the same problem.
+          required: true
+        - label: I removed personal information, account tokens, and private logs from this report.
+          required: true

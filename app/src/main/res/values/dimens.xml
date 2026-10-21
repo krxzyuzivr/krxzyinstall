@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="page_pad">32dp</dimen>
+    <dimen name="card_pad">18dp</dimen>
+    <dimen name="card_radius">20dp</dimen>
+    <dimen name="row_min_height">56dp</dimen>
+</resources>

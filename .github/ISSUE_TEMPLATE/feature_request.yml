@@ -1,0 +1,74 @@
+name: Feature request
+description: Suggest an improvement to scanning, installing, OBB handling, or the interface.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. Small, focused suggestions are easiest to review and test. Please search existing issues before opening a new one.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the situation where krxzyinstall is awkward, slow, or missing something.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: What would you like it to do?
+      description: A clear description of the behavior you want.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you have tried
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - File scanning and game matching
+        - APK install flow
+        - OBB placement or cleanup
+        - Permissions and setup
+        - Launching games
+        - Interface and accessibility
+        - Build, release, or documentation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: headset
+    attributes:
+      label: Headset
+      placeholder: "Quest 3S, Horizon OS 2.7"
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Extra context
+      description: Screenshots, examples, or links are welcome. Do not attach game files.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and did not find the same request.
+          required: true
+        - label: This request does not involve bypassing Android's install confirmation or other system security controls.
+          required: true

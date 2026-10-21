@@ -1,0 +1,43 @@
+krxzyinstall
+Copyright (C) 2026 krxzyuzivr
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <https://www.gnu.org/licenses/>.
+
+-------------------------------------------------------------------------------
+Additional terms under GNU GPL v3 section 7
+-------------------------------------------------------------------------------
+
+1. Credit preservation.
+
+   Any modified version that you distribute, publish, or make available to
+   others must preserve the original krxzyinstall credits. The in-app Credits
+   screen and the CREDITS.md file must both remain present and readable, with
+   "krxzyuzivr" listed first and "shrimpo" listed second. You may add new
+   contributors below them, but you may not remove, hide, rename, reorder, or
+   replace the original credits.
+
+2. Notices.
+
+   You must keep this NOTICE file, the LICENSE file, and all copyright and
+   attribution notices in the source and binary distributions.
+
+3. No official-build impersonation.
+
+   Modified builds must not be presented as official krxzyinstall releases.
+   The krxzyinstall name, icon, and official signing certificate are covered by
+   TRADEMARKS.md. That is a separate trademark policy, not a copyright license
+   condition.
+
+The credit-preservation and notice terms above are intended to be enforceable
+under section 7 of the GNU GPL v3.0. If a term is found to be invalid, the rest
+of the license and these terms remain in effect.

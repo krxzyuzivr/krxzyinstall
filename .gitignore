@@ -1,0 +1,38 @@
+# Gradle and Android build outputs
+.gradle/
+build/
+**/build/
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.idsig
+
+# Local machine configuration and signing secrets
+# NEVER commit these. The release signing key is private.
+local.properties
+keystore.properties
+keystore/
+*.jks
+*.keystore
+keystore-password.txt
+
+# Local distribution folder (APKs are published through GitHub Releases)
+dist/
+
+# IDE and editor files
+.idea/
+*.iml
+.vs/
+*.user
+*.userprefs
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local logs and crash dumps
+*.log
+hs_err_pid*
