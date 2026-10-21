@@ -19,17 +19,6 @@ function Read-Required([string]$Path) {
     return Get-Content -LiteralPath $Path -Raw
 }
 
-function Check-Order([string]$Text, [string]$Where) {
-    $creator = $Text.IndexOf("krxzyuzivr")
-    $friend = $Text.IndexOf("shrimpo")
-    if ($creator -lt 0 -or $friend -lt 0) {
-        Fail "$Where is missing krxzyuzivr and/or shrimpo."
-    }
-    if ($friend -lt $creator) {
-        Fail "$Where has the credits in the wrong order; krxzyuzivr must be first."
-    }
-}
-
 $creditsPath = Join-Path $root "CREDITS.md"
 $stringsPath = Join-Path $root "app/src/main/res/values/strings.xml"
 $uiPath = Join-Path $root "app/src/main/java/com/krxzy/krxzyinstall/Ui.java"
@@ -37,7 +26,12 @@ $mainPath = Join-Path $root "app/src/main/java/com/krxzy/krxzyinstall/MainActivi
 $layoutPath = Join-Path $root "app/src/main/res/layout/activity_main.xml"
 
 $credits = Read-Required $creditsPath
-Check-Order $credits "CREDITS.md"
+if ($credits -notmatch '(?m)^1\. \*\*krxzyuzivr\*\*') {
+    Fail "CREDITS.md must keep krxzyuzivr as credit number 1."
+}
+if ($credits -notmatch '(?m)^2\. \*\*shrimpo\*\*') {
+    Fail "CREDITS.md must keep shrimpo as credit number 2."
+}
 
 $strings = Read-Required $stringsPath
 $creditsMatch = [regex]::Match(
@@ -46,9 +40,14 @@ $creditsMatch = [regex]::Match(
 if (-not $creditsMatch.Success) {
     Fail "The credits_body string is missing from strings.xml."
 }
-$creditsBody = $creditsMatch.Groups["body"].Value
-Check-Order $creditsBody "The in-app Credits screen"
-if ($creditsBody -notmatch 'krxzyuzivr\\nshrimpo') {
+
+# Android stores line breaks as literal \n escapes in this resource. Decode them
+# so the check compares whole credit lines, not arbitrary substrings.
+$creditsText = $creditsMatch.Groups["body"].Value -replace '\\n', "`n"
+$creditLines = @($creditsText -split "`r?`n" | ForEach-Object { $_.Trim() })
+$creatorLine = [Array]::IndexOf($creditLines, "krxzyuzivr")
+$friendLine = [Array]::IndexOf($creditLines, "shrimpo")
+if ($creatorLine -lt 0 -or $friendLine -ne ($creatorLine + 1)) {
     Fail "The in-app Credits screen must list krxzyuzivr then shrimpo on consecutive lines."
 }
 
@@ -58,7 +57,9 @@ $footerMatch = [regex]::Match(
 if (-not $footerMatch.Success) {
     Fail "The main-screen footer string is missing from strings.xml."
 }
-Check-Order $footerMatch.Groups["footer"].Value "The main-screen footer"
+if ($footerMatch.Groups["footer"].Value -notmatch 'Made by krxzyuzivr &amp; shrimpo') {
+    Fail "The main-screen footer must keep the exact 'Made by krxzyuzivr &amp; shrimpo' credit."
+}
 
 $ui = Read-Required $uiPath
 if ($ui -notmatch 'showCredits\s*\(' -or
